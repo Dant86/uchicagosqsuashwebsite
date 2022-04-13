@@ -1,0 +1,54 @@
+#logo {
+    width: 30%;
+    height: auto;
+}
+
+#logo-container {
+    text-align: center;
+    width: 100%;
+    margin: 0px;
+    padding-top: 50px;
+}
+
+#select {
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.select-item {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+.item-text {
+    font-family: "Gotham";
+    color: white;
+    font-size: 30px;
+    position: relative;
+}
+
+.item-text:after {
+    content: '';
+    position: absolute;
+    width:50%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 25%;
+    background-color: #7f1416;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.item-text:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+footer {
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
+}

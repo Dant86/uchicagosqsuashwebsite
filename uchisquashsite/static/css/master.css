@@ -1,0 +1,51 @@
+a {
+    text-decoration: none !important;
+}
+
+body {
+    background-color: #3A3A3A;
+}
+
+.nav-link {
+    color: #ffffff;
+    font-family: "Gotham"
+}
+
+.navbar {
+    background-color: #323232;
+}
+
+.active .nav-link {
+    color: #7f1416;
+    text-decoration: none !important;
+}
+
+.nonactive .nav-link {
+    color: #ffffff;
+    text-decoration: none !important;
+}
+
+.navbar .navbar-nav .nonactive {
+    position: relative;
+    color: #ffffff;
+    text-decoration: none !important;
+}
+
+.navbar .navbar-nav .nonactive:after {
+    content: '';
+    position: absolute;
+    width:80%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 10%;
+    background-color: #7f1416;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.navbar .navbar-nav .nonactive:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    color: #7f1416;
+}
