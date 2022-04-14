@@ -34,7 +34,7 @@ def add_position(p, pos):
     p.position = pos
     db.session.commit()
 
-def get_player_ratings():
+def get_active_roster():
     r = get(USSQUASH_API_URL)
     df = DataFrame(r.json())[['player', 'CurrentRating']]
     active_players = Player.query.filter_by(graduated=False).all()
