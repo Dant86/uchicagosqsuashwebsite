@@ -4,7 +4,7 @@ img {
 }
 
 #slideshow { 
-    margin: 50px auto; 
+    margin: 20px auto; 
     position: relative; 
     width: 1000px; 
     height: 700px; 
@@ -21,8 +21,8 @@ img {
 
 #title {
     text-align: center;
-    font-family: "Gotham";
+    font-family: "DIN Condensed";
     color: #ffffff;
-    font-size: 50px;
+    font-size: 70px;
     padding-top: 50px;
 }

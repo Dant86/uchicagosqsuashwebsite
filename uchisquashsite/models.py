@@ -9,7 +9,7 @@ class Player(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fname = db.Column(db.String(255))
     lname = db.Column(db.String(255))
-    rating = db.Column(db.Float)
+    minitial = db.Colunm(db.String(1), default='')
     ladder_pos = db.Column(db.Integer)
     photo_url = db.Column(db.String(255), default='')
     graduation_year = db.Column(db.Integer)

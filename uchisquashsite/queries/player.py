@@ -1,5 +1,9 @@
 from uchisquashsite.models import Player
 from uchisquashsite.models import db
+from requests import get
+from pandas import DataFrame
+
+USSQUASH_API_URL = 'https://api.ussquash.com/resources/teams/29927/players'
 
 def get_player(id_):
     return Player.query.filter_by(id=id_).first()
@@ -29,3 +33,14 @@ def graduate(p):
 def add_position(p, pos):
     p.position = pos
     db.session.commit()
+
+def get_player_ratings():
+    r = get(USSQUASH_API_URL)
+    df = DataFrame(r.json())[['player', 'CurrentRating']]
+    active_players = Player.query.filter_by(graduated=False).all()
+    results = []
+    for player in active_players:
+        query_string = f'{player.lname}, {player.fname} {player.minitial}'
+        rating = float(df[df['player'] == query_string]['CurrentRating'])
+        results.append((player, rating))
+    return results

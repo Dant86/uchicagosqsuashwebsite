@@ -8,7 +8,8 @@ body {
 
 .nav-link {
     color: #ffffff;
-    font-family: "Gotham"
+    font-family: "DIN Condensed";
+    font-size: 20px;
 }
 
 .navbar {
