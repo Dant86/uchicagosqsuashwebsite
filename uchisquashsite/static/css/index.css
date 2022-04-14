@@ -45,10 +45,3 @@
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-
-footer {
-    text-align: center;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 10px;
-}
