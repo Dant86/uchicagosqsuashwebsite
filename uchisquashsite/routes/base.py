@@ -13,5 +13,5 @@ def about():
 
 @base.route('/roster')
 def roster():
-    print(get_active_roster())
-    return jsonify(success=True)
+    roster = [(p, f'{r:.2f}', x) for p, r, x in sorted(get_active_roster(), key=lambda x: x[2])]
+    return render_template('roster.html', roster=roster)

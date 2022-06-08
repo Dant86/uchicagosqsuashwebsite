@@ -1,0 +1,24 @@
+.playerphoto {
+    border-radius: 50%;
+    width: 150px;
+    height: auto;
+}
+
+.player {
+    width: 33%;
+    height: 400px;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.player p {
+    color: white;
+}
+
+.bolded {
+    font-family: "DIN Condensed";
+    font-size: 25px;
+}

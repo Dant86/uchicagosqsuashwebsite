@@ -10,7 +10,7 @@ def get_player(id_):
 
 def create_player(fname, lname, minitial,
                   year, major, email, bio='', photo_url='', pos=''):
-    photo_url = 'static/images/teamlogo.png' if photo_url == '' else photo_url
+    photo_url = 'static/images/editedlogo.png' if photo_url == '' else photo_url
     p = Player(fname=fname, lname=lname, minitial=minitial,
                photo_url=photo_url, graduation_year=year, graduated=False,
                bio=bio, position=pos, email=email, major=major)
