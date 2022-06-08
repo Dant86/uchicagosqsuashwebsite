@@ -4,8 +4,10 @@ requires = (
     'flask',
     'flask-sqlalchemy',
     'python-dotenv',
-    'mysqlclient',
-    'flask-testing'
+    'psycopg2',
+    'flask-testing',
+    'pandas',
+    'requests'
 )
 
 setup(
