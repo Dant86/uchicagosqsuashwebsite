@@ -1,0 +1,35 @@
+.match {
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 25%;
+    padding-right: 25%;
+    text-align: center;
+}
+
+.nonlast:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    padding-top: 20px;
+    border-bottom: 2px solid #7f1416;
+}
+
+.match p {
+    color: white;
+}
+
+.bolded {
+    font-family: "DIN Condensed";
+    font-size: 25px;
+}
+
+#title {
+    text-align: center;
+    font-family: "DIN Condensed";
+    color: #ffffff;
+    font-size: 70px;
+    padding-top: 50px;
+}

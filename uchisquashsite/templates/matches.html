@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +7,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="static/images/teamlogo.png">
-        <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
         <link href="http://fonts.cdnfonts.com/css/din-condensed" rel="stylesheet">
+        <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link rel="stylesheet" href="static/css/master.css">
-        <link rel="stylesheet" href="static/css/about.css">
+        <link rel="stylesheet" href="static/css/matches.css">
     </head>
     <body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -20,19 +20,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link">ABOUT <span class="sr-only">(current)</span></a>
+                    <a class="nav-link">SCHEDULE</a>
                 </li>
                 <li class="nav-item nonactive">
                     <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
-                  </li>
+                </li>
+                <li class="nav-item nonactive">
+                  <a class="nav-link" href="/about">ABOUT <span class="sr-only">(current)</span></a>
+                </li>
                 <li class="nav-item nonactive">
                   <a class="nav-link" href="#">NEWS</a>
                 </li>
                 <li class="nav-item nonactive">
-                  <a class="nav-link" href="/matches">SCHEDULE</a>
-                </li>
-                <li class="nav-item nonactive">
-                  <a class="nav-link" href="/roster">ROSTER</a>
+                    <a class="nav-link" href="/roster">ROSTER</a>
                 </li>
                 <li class="nav-item nonactive">
                     <a class="nav-link" href="#">JOIN/SUPPORT</a>
@@ -41,24 +41,33 @@
             </div>
         </nav>
         <div id="title">
-            UNIVERSITY OF CHICAGO CLUB SQUASH
+            SEASON SCHEDULE
         </div>
-        <div id="slideshow">
-            <div>
-              <img src="static/images/teamphoto.jpeg">
+        {% for ix, match in ms.iterrows() %}
+            {% if ix != ms.shape[0] - 1 %}
+                <div class="match nonlast">
+            {% else %}
+                <div class="match">
+            {% endif %}
+                <p class="bolded">{{ match['date'] }}</p>
+                <p class="bolded">Opponent: {{ match['opp'] }}</p>
+                {% if match['home'] %}
+                    <p class="bolded">Home</p>
+                {% else %}
+                    <p class="bolded">Away</p>
+                {% endif %}
+                <p class="bolded">
+                    {% if match['ourscore'] > match['oscore'] %}
+                        <span color="green">Won</span>
+                    {% else %}
+                    <span color="red">Lost</span>
+                    {% endif %}
+                    {{ match['ourscore'] }}-{{ match['oscore'] }}
+                </p>
             </div>
-            <div>
-                <img src="static/images/vedant_georgetown.jpg">
-            </div>
-            <div>
-                <img src="static/images/quinn_georgetown.jpg">
-            </div>
-            <div>
-                <img src="static/images/ishaan_georgetown.jpg">
-            </div>
-            <div>
-                <img src="static/images/seif_washu.jpg">
-            </div>
-        </div>
+        {% endfor %}
+        <footer>
+            <p>Vedant Pathak, 2022</p>
+        </footer>
     </body>
 </html>
