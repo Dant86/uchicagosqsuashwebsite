@@ -40,13 +40,34 @@
               </ul>
             </div>
         </nav>
+        <div id="title">
+            UNIVERSITY OF CHICAGO CLUB SQUASH ROSTER
+        </div>
+        <div class="player nonlast">
+            <div class="pimg">
+                <img class="playerphoto" src="static/images/chris.jpeg">
+            </div>
+            <p class="bolded">Coach: Chris Fuller</p>
+            <p class="bolded">US Squash Rating: {{chris_rating}}</p>
+            <p>Originally from the UK. An active participant on the PSA World Tour. HWR: #89.</p>
+        </div>
         {% for player, rating, position in roster %}
-            <div id="{{ player.id }}" class="player">
-                <img class="playerphoto" src="{{ player.photo_url }}">
+            {% if loop.index != l %}
+                <div id="{{ player.id }}" class="player nonlast">
+            {% else %}
+                <div id="{{ player.id }}" class="player">
+            {% endif %}
+                <div class="pimg">
+                    <img class="playerphoto" src="{{ player.photo_url }}">
+                </div>
                 <p class="bolded">#{{position}}: {{player.fname}} {{player.minitial}} {{player.lname}}</p>
+                <p class="bolded">Major(s): {{ player.major }}</p>
                 <p class="bolded">US Squash Rating: {{rating}}</p>
                 <p>{{player.bio}}</p>
             </div>
         {% endfor %}
+        <footer>
+            <p>Vedant Pathak, 2022</p>
+        </footer>
     </body>
 </html>
